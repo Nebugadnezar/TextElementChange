@@ -41,6 +41,7 @@ export class MouseCoord implements ComponentFramework.StandardControl<IInputs, I
         this._textElement.setAttribute("type", "text");
         this._textElement.setAttribute("id", "TextID")
         this._textElement.setAttribute("style", "width : 200px");
+        this._textElement.hidden  = true;
         //this._textElement.value = context.parameters.sampleProperty.raw == null ? "" : context.parameters.sampleProperty.raw;
 
         this._textElement.addEventListener("change", this.onBlur);
@@ -52,6 +53,7 @@ export class MouseCoord implements ComponentFramework.StandardControl<IInputs, I
         this.label = document.createElement("label");
         this.label.setAttribute("id", "LabelID")
         this.label.setAttribute("class", "Label")
+        this.label.hidden  = true;
         // this.button = document.createElement("button");
         // this.button.id = "cf6e3bc1-1cc1-4404-9171-9b7c981f97f6"
         // this.button.innerHTML = "Email me";
@@ -87,14 +89,14 @@ export class MouseCoord implements ComponentFramework.StandardControl<IInputs, I
         const text = document.getElementById("TextID");
         if (text) {
             console.log('you here if');
-            text.setAttribute('value', String(event.clientX - 21) + ',' + String(event.clientY - 68));
+            text.setAttribute('value', String(event.clientX - 209) + ',' + String(event.clientY - 60));
             var event1 = new Event('change');
             text.dispatchEvent(event1)
         }
 
         if (label) {
             console.log('you here if');
-            label.innerText = `{ "Coord" : { "posX": ${String(event.clientX - 21)} ,"posY":  ${String(event.clientY - 68)}} }`;
+            label.innerText = `{ "Coord" : { "posX": ${String(event.clientX - 810)} ,"posY":  ${String(event.clientY - 35)}} }`;
         }
         //this.OutputX = outputXVal;
         //this.array = [event.clientX - 21, event.clientY - 68];
